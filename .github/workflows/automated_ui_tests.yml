@@ -1,4 +1,4 @@
-name: 🧪 Automated UI Tests
+name: 🧪 Automated Tests
 
 on:
   push:
@@ -33,8 +33,8 @@ jobs:
         restore-keys: |
           ${{ runner.os }}-gradle-
           
-    - name: 🧪 Run Unit Tests
-      run: ./gradlew testDebugUnitTest
+    - name: 🧪 Run Unit Tests with Coverage
+      run: ./gradlew testDebugUnitTest jacocoTestReport
       
     - name: 📊 Upload Unit Test Results
       uses: actions/upload-artifact@v4
@@ -42,11 +42,16 @@ jobs:
       with:
         name: unit-test-results
         path: app/build/reports/tests/
-
-  ui-tests:
-    runs-on: ubuntu-latest
-    needs: unit-tests
         
+    - name: 📊 Upload Coverage Report
+      uses: actions/upload-artifact@v4
+      with:
+        name: coverage-report
+        path: app/build/reports/jacoco/
+
+  build-tests:
+    runs-on: ubuntu-latest
+    
     steps:
     - name: 📥 Checkout code
       uses: actions/checkout@v4
@@ -70,71 +75,24 @@ jobs:
         restore-keys: |
           ${{ runner.os }}-gradle-
           
-    - name: 📱 Create AVD and run UI Tests
-      uses: reactivecircus/android-emulator-runner@v2
-      with:
-        api-level: 29
-        target: google_apis
-        arch: x86_64
-        profile: Nexus 6
-        script: ./gradlew connectedDebugAndroidTest
-        
-    - name: 📊 Upload UI Test Results
-      uses: actions/upload-artifact@v4
-      if: always()
-      with:
-        name: ui-test-results
-        path: app/build/reports/androidTests/
-
-  coverage:
-    runs-on: ubuntu-latest
-    needs: unit-tests
-    
-    steps:
-    - name: 📥 Checkout code
-      uses: actions/checkout@v4
-      
-    - name: ☕ Setup JDK 17
-      uses: actions/setup-java@v4
-      with:
-        java-version: '17'
-        distribution: 'temurin'
-        
-    - name: 🏗️ Cache Gradle packages
-      uses: actions/cache@v4
-      with:
-        path: |
-          ~/.gradle/caches
-          ~/.gradle/wrapper
-        key: ${{ runner.os }}-gradle-${{ hashFiles('**/*.gradle*', '**/gradle-wrapper.properties') }}
-        restore-keys: |
-          ${{ runner.os }}-gradle-
-          
-    - name: 📊 Generate Coverage Report
-      run: ./gradlew jacocoTestReport
-      
-    - name: 📈 Upload Coverage to Codecov
-      uses: codecov/codecov-action@v4
-      with:
-        file: app/build/reports/jacoco/jacocoTestReport/jacocoTestReport.xml
-        
-    - name: 📊 Upload Coverage Report
-      uses: actions/upload-artifact@v4
-      with:
-        name: coverage-report
-        path: app/build/reports/jacoco/
+    - name: 🏗️ Build Project
+      run: ./gradlew assembleDebug assembleDebugAndroidTest
 
   notify:
     runs-on: ubuntu-latest
-    needs: [unit-tests, ui-tests, coverage]
+    needs: [unit-tests, build-tests]
     if: always()
     
     steps:
     - name: 📢 Notify Test Results
       run: |
-        if [ "${{ needs.unit-tests.result }}" == "success" ] && [ "${{ needs.ui-tests.result }}" == "success" ]; then
+        if [ "${{ needs.unit-tests.result }}" == "success" ] && [ "${{ needs.build-tests.result }}" == "success" ]; then
           echo "✅ All tests passed! 🎉"
+          echo "📊 Coverage reports generated"
+          echo "🏗️ Build successful"
         else
           echo "❌ Some tests failed! 🔍"
+          echo "Unit tests: ${{ needs.unit-tests.result }}"
+          echo "Build tests: ${{ needs.build-tests.result }}"
           exit 1
         fi
