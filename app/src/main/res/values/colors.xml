@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="purple_200">#FFBB86FC</color>
+    <color name="purple_500">#FF6200EE</color>
+    <color name="purple_700">#FF3700B3</color>
+    <color name="teal_200">#FF03DAC5</color>
+    <color name="teal_700">#FF018786</color>
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+    
+    <!-- Light theme calculator colors - Clean Flat Design -->
+    <color name="calculator_background">#FFF8F9FA</color>
+    <color name="display_background">#718071</color>
+    <color name="display_text">#FF2E7D32</color>
+    <color name="button_number">#FFFFFFFF</color>
+    <color name="button_operator">#FF2196F3</color>
+    <color name="button_function">#FF757575</color>
+    <color name="button_scientific">#FF9C27B0</color>
+    <color name="button_clear">#FFFFFFFF</color>
+    <color name="button_clear_text">#FFFF9800</color>
+    <color name="text_primary">#FF424242</color>
+    <color name="text_secondary">#FF757575</color>
+    <color name="text_on_display">#000000</color>
+    <color name="text_on_button">#FFFFFFFF</color>
+    <color name="text_on_number">#FF424242</color>
+    <color name="text_on_function">#FFFFFFFF</color>
+    
+    <!-- Launcher icon colors -->
+    <color name="ic_launcher_background">#FF6200EE</color>
+</resources>

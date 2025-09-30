@@ -1,0 +1,504 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/calculator_background"
+    android:orientation="vertical"
+    android:padding="16dp"
+    android:fitsSystemWindows="true"
+    android:paddingTop="?android:attr/actionBarSize"
+    android:paddingBottom="16dp">
+
+    <!-- Display Area -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:background="@drawable/display_background"
+        android:gravity="bottom|end"
+        android:orientation="vertical"
+        android:padding="16dp"
+        android:layout_margin="16dp">
+
+        <TextView
+            android:id="@+id/tvExpression"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="end"
+            android:text=""
+            android:textColor="@color/text_on_display"
+            android:textSize="@dimen/button_text_size_small"
+            android:visibility="gone"
+            android:alpha="0.7" />
+
+        <TextView
+            android:id="@+id/tvResult"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="end"
+            android:text="0"
+            android:textColor="@color/text_on_display"
+            android:textSize="@dimen/display_text_size_medium"
+            android:textStyle="bold"
+            android:maxLines="3"
+            android:ellipsize="start"
+            android:minHeight="@dimen/display_min_height"
+            android:padding="@dimen/display_padding" />
+
+    </LinearLayout>
+
+    <!-- Scientific Functions Row 1 -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/btnMode"
+                style="@style/CalculatorButton.Function"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:text="🔢"
+                android:textSize="@dimen/button_text_size_small" />
+
+        <Button
+            android:id="@+id/btnHistory"
+            style="@style/CalculatorButton.Function"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:text="📊"
+            android:textSize="@dimen/button_text_size_small" />
+
+        <Button
+            android:id="@+id/btnConverter"
+            style="@style/CalculatorButton.Function"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:text="🔄"
+            android:textSize="@dimen/button_text_size_small" />
+
+        <Button
+            android:id="@+id/btnSin"
+            style="@style/CalculatorButton.Scientific"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:text="sin" />
+
+        <Button
+            android:id="@+id/btnCos"
+            style="@style/CalculatorButton.Scientific"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:text="cos" />
+
+    </LinearLayout>
+
+    <!-- Scientific Functions Row 2 -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/btnAsin"
+            style="@style/CalculatorButton.Scientific"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:text="asin" />
+
+        <Button
+            android:id="@+id/btnAcos"
+            style="@style/CalculatorButton.Scientific"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:text="acos" />
+
+        <Button
+            android:id="@+id/btnAtan"
+            style="@style/CalculatorButton.Scientific"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:text="atan" />
+
+        <Button
+            android:id="@+id/btnLn"
+            style="@style/CalculatorButton.Scientific"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:text="ln" />
+
+    </LinearLayout>
+
+    <!-- Scientific Functions Row 3 -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/btnMC"
+            style="@style/CalculatorButton.Function"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:text="MC" />
+
+        <Button
+            android:id="@+id/btnSqrt"
+            style="@style/CalculatorButton.Scientific"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:text="√" />
+
+        <Button
+            android:id="@+id/btnCbrt"
+            style="@style/CalculatorButton.Scientific"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:text="∛" />
+
+        <Button
+            android:id="@+id/btnPower"
+            style="@style/CalculatorButton.Scientific"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:text="x^y" />
+
+        <Button
+            android:id="@+id/btnFactorial"
+            style="@style/CalculatorButton.Scientific"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:text="n!" />
+
+    </LinearLayout>
+
+    <!-- Scientific Functions Row 4 -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/btnMR"
+            style="@style/CalculatorButton.Function"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:text="MR" />
+
+        <Button
+            android:id="@+id/btnSquare"
+            style="@style/CalculatorButton.Scientific"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:text="x²" />
+
+        <Button
+            android:id="@+id/btnCube"
+            style="@style/CalculatorButton.Scientific"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:text="x³" />
+
+        <Button
+            android:id="@+id/btnInverse"
+            style="@style/CalculatorButton.Scientific"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:text="1/x" />
+
+        <Button
+            android:id="@+id/btnPi"
+            style="@style/CalculatorButton.Scientific"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:text="π" />
+
+    </LinearLayout>
+
+    <!-- Scientific Functions Row 5 -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/btnMS"
+            style="@style/CalculatorButton.Function"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:text="MS" />
+
+        <Button
+            android:id="@+id/btnMPlus"
+            style="@style/CalculatorButton.Function"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:text="M+" />
+
+        <Button
+            android:id="@+id/btnMMinus"
+            style="@style/CalculatorButton.Function"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:text="M-" />
+
+        <Button
+            android:id="@+id/btnE"
+            style="@style/CalculatorButton.Scientific"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:text="e" />
+
+        <Button
+            android:id="@+id/btnAbs"
+            style="@style/CalculatorButton.Scientific"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:text="|x|" />
+
+    </LinearLayout>
+
+    <!-- Basic Calculator Functions -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/btnClearAll"
+            style="@style/CalculatorButton.Function"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:text="@string/clear_all" />
+
+        <Button
+            android:id="@+id/btnPlusMinus"
+            style="@style/CalculatorButton.Function"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:text="@string/plus_minus" />
+
+        <Button
+            android:id="@+id/btnPercent"
+            style="@style/CalculatorButton.Function"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:text="@string/percent" />
+
+        <Button
+            android:id="@+id/btnDivide"
+            style="@style/CalculatorButton.Operator"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:text="@string/divide" />
+
+    </LinearLayout>
+
+    <!-- Number Row 1 -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/btn7"
+            style="@style/CalculatorButton.Number"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:text="@string/seven" />
+
+        <Button
+            android:id="@+id/btn8"
+            style="@style/CalculatorButton.Number"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:text="@string/eight" />
+
+        <Button
+            android:id="@+id/btn9"
+            style="@style/CalculatorButton.Number"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:text="@string/nine" />
+
+        <Button
+            android:id="@+id/btnMultiply"
+            style="@style/CalculatorButton.Operator"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:text="@string/multiply" />
+
+    </LinearLayout>
+
+    <!-- Number Row 2 -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/btn4"
+            style="@style/CalculatorButton.Number"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:text="@string/four" />
+
+        <Button
+            android:id="@+id/btn5"
+            style="@style/CalculatorButton.Number"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:text="@string/five" />
+
+        <Button
+            android:id="@+id/btn6"
+            style="@style/CalculatorButton.Number"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:text="@string/six" />
+
+        <Button
+            android:id="@+id/btnSubtract"
+            style="@style/CalculatorButton.Operator"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:text="@string/subtract" />
+
+    </LinearLayout>
+
+    <!-- Number Row 3 -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/btn1"
+            style="@style/CalculatorButton.Number"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:text="@string/one" />
+
+        <Button
+            android:id="@+id/btn2"
+            style="@style/CalculatorButton.Number"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:text="@string/two" />
+
+        <Button
+            android:id="@+id/btn3"
+            style="@style/CalculatorButton.Number"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:text="@string/three" />
+
+        <Button
+            android:id="@+id/btnAdd"
+            style="@style/CalculatorButton.Operator"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:text="@string/add" />
+
+    </LinearLayout>
+
+    <!-- Bottom Row -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/btn0"
+            style="@style/CalculatorButton.Number"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="2"
+            android:text="@string/zero" />
+
+        <Button
+            android:id="@+id/btnDecimal"
+            style="@style/CalculatorButton.Number"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:text="@string/decimal" />
+
+        <Button
+            android:id="@+id/btnEquals"
+            style="@style/CalculatorButton.Operator"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:text="@string/equals" />
+
+    </LinearLayout>
+
+    <!-- Delete Row -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/btnDelete"
+            style="@style/CalculatorButton.Function"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="@string/delete" />
+
+    </LinearLayout>
+
+</LinearLayout>

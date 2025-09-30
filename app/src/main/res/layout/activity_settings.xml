@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/calculator_background"
+    android:orientation="vertical"
+    android:padding="24dp">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Settings"
+        android:textColor="@color/text_primary"
+        android:textSize="32sp"
+        android:textStyle="bold"
+        android:gravity="center"
+        android:layout_marginBottom="32dp" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Choose Theme"
+        android:textColor="@color/text_primary"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:layout_marginBottom="16dp" />
+
+    <RadioGroup
+        android:id="@+id/themeGroup"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="32dp">
+
+        <RadioButton
+            android:id="@+id/radioDark"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Dark Theme"
+            android:textColor="@color/text_primary"
+            android:textSize="18sp"
+            android:layout_marginBottom="8dp"
+            android:padding="16dp"
+            android:background="@drawable/radio_background"
+            android:buttonTint="@color/button_operator" />
+
+        <RadioButton
+            android:id="@+id/radioLight"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Light Theme"
+            android:textColor="@color/text_primary"
+            android:textSize="18sp"
+            android:layout_marginBottom="8dp"
+            android:padding="16dp"
+            android:background="@drawable/radio_background"
+            android:buttonTint="@color/button_operator" />
+
+        <RadioButton
+            android:id="@+id/radioColorful"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Colorful Theme"
+            android:textColor="@color/text_primary"
+            android:textSize="18sp"
+            android:padding="16dp"
+            android:background="@drawable/radio_background"
+            android:buttonTint="@color/button_operator" />
+
+    </RadioGroup>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Features"
+        android:textColor="@color/text_primary"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:layout_marginBottom="16dp" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="• Basic Calculator Operations\n• Scientific Calculator Mode\n• Calculation History\n• Memory Functions\n• Multiple Themes\n• Landscape Support\n• Advanced Math Functions"
+        android:textColor="@color/text_secondary"
+        android:textSize="16sp"
+        android:lineSpacingExtra="4dp"
+        android:layout_marginBottom="32dp" />
+
+    <Button
+        android:id="@+id/btnBack"
+        style="@style/CalculatorButton.Operator"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:text="Back to Calculator"
+        android:textSize="18sp" />
+
+</LinearLayout>
+

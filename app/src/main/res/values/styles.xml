@@ -1,0 +1,110 @@
+<resources>
+    <!-- Base calculator button style -->
+    <style name="CalculatorButton" parent="android:Widget.Button">
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_height">0dp</item>
+        <item name="android:layout_margin">@dimen/button_margin</item>
+        <item name="android:textSize">@dimen/button_text_size_medium</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:elevation">0dp</item>
+        <item name="android:stateListAnimator">@null</item>
+        <item name="android:insetLeft">0dp</item>
+        <item name="android:insetTop">0dp</item>
+        <item name="android:insetRight">0dp</item>
+        <item name="android:insetBottom">0dp</item>
+        <item name="android:maxLines">1</item>
+        <item name="android:ellipsize">none</item>
+        <item name="android:gravity">center</item>
+        <item name="android:minHeight">@dimen/button_min_height</item>
+        <item name="android:padding">@dimen/button_padding</item>
+    </style>
+
+    <!-- Number button style -->
+    <style name="CalculatorButton.Number" parent="android:Widget.Button">
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_height">0dp</item>
+        <item name="android:layout_margin">@dimen/button_margin</item>
+        <item name="android:textSize">@dimen/button_text_size_medium</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:elevation">0dp</item>
+        <item name="android:stateListAnimator">@null</item>
+        <item name="android:insetLeft">0dp</item>
+        <item name="android:insetTop">0dp</item>
+        <item name="android:insetRight">0dp</item>
+        <item name="android:insetBottom">0dp</item>
+        <item name="android:maxLines">1</item>
+        <item name="android:ellipsize">none</item>
+        <item name="android:gravity">center</item>
+        <item name="android:minHeight">@dimen/button_min_height</item>
+        <item name="android:padding">@dimen/button_padding</item>
+        <item name="android:textColor">#FF424242</item>
+        <item name="android:background">@drawable/button_number_background</item>
+    </style>
+
+    <!-- Operator button style -->
+    <style name="CalculatorButton.Operator" parent="android:Widget.Button">
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_height">0dp</item>
+        <item name="android:layout_margin">@dimen/button_margin</item>
+        <item name="android:textSize">@dimen/button_text_size_medium</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:elevation">0dp</item>
+        <item name="android:stateListAnimator">@null</item>
+        <item name="android:insetLeft">0dp</item>
+        <item name="android:insetTop">0dp</item>
+        <item name="android:insetRight">0dp</item>
+        <item name="android:insetBottom">0dp</item>
+        <item name="android:maxLines">1</item>
+        <item name="android:ellipsize">none</item>
+        <item name="android:gravity">center</item>
+        <item name="android:minHeight">@dimen/button_min_height</item>
+        <item name="android:padding">@dimen/button_padding</item>
+        <item name="android:textColor">#FFFFFFFF</item>
+        <item name="android:background">@drawable/button_operator_background</item>
+    </style>
+
+    <!-- Function button style -->
+    <style name="CalculatorButton.Function" parent="android:Widget.Button">
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_height">0dp</item>
+        <item name="android:layout_margin">@dimen/button_margin</item>
+        <item name="android:textSize">@dimen/button_text_size_medium</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:elevation">0dp</item>
+        <item name="android:stateListAnimator">@null</item>
+        <item name="android:insetLeft">0dp</item>
+        <item name="android:insetTop">0dp</item>
+        <item name="android:insetRight">0dp</item>
+        <item name="android:insetBottom">0dp</item>
+        <item name="android:maxLines">1</item>
+        <item name="android:ellipsize">none</item>
+        <item name="android:gravity">center</item>
+        <item name="android:minHeight">@dimen/button_min_height</item>
+        <item name="android:padding">@dimen/button_padding</item>
+        <item name="android:textColor">#FFFFFFFF</item>
+        <item name="android:background">@drawable/button_function_background</item>
+    </style>
+
+    <!-- Scientific button style -->
+    <style name="CalculatorButton.Scientific" parent="android:Widget.Button">
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_height">0dp</item>
+        <item name="android:layout_margin">@dimen/button_margin</item>
+        <item name="android:textSize">@dimen/button_text_size_small</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:elevation">0dp</item>
+        <item name="android:stateListAnimator">@null</item>
+        <item name="android:insetLeft">0dp</item>
+        <item name="android:insetTop">0dp</item>
+        <item name="android:insetRight">0dp</item>
+        <item name="android:insetBottom">0dp</item>
+        <item name="android:maxLines">1</item>
+        <item name="android:ellipsize">none</item>
+        <item name="android:gravity">center</item>
+        <item name="android:minHeight">@dimen/button_min_height</item>
+        <item name="android:padding">@dimen/button_padding</item>
+        <item name="android:textColor">#FFFFFFFF</item>
+        <item name="android:background">@drawable/button_scientific_background</item>
+    </style>
+
+</resources>

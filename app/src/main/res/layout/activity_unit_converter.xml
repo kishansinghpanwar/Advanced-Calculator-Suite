@@ -1,0 +1,165 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/calculator_background"
+    android:padding="16dp"
+    android:fitsSystemWindows="true"
+    android:paddingTop="?android:attr/actionBarSize">
+
+    <!-- Header -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:layout_marginBottom="24dp">
+
+        <ImageButton
+            android:id="@+id/backButton"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:src="@drawable/ic_back"
+            android:background="?android:attr/selectableItemBackgroundBorderless"
+            android:contentDescription="Back" />
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Unit Converter"
+            android:textSize="@dimen/display_text_size_large"
+            android:textColor="@color/text_on_display"
+            android:textStyle="bold"
+            android:gravity="center" />
+
+        <View
+            android:layout_width="48dp"
+            android:layout_height="48dp" />
+
+    </LinearLayout>
+
+    <!-- Input Fields -->
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <!-- Category -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Category"
+                android:textSize="@dimen/button_text_size_medium"
+                android:textColor="@color/text_on_display"
+                android:layout_marginBottom="8dp" />
+
+            <Spinner
+                android:id="@+id/categorySpinner"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/input_background"
+                android:padding="16dp"
+                android:layout_marginBottom="16dp" />
+
+            <!-- From Value -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="From Value"
+                android:textSize="@dimen/button_text_size_medium"
+                android:textColor="@color/text_on_display"
+                android:layout_marginBottom="8dp" />
+
+            <EditText
+                android:id="@+id/fromValue"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Enter value to convert"
+                android:inputType="numberDecimal"
+                android:background="@drawable/input_background"
+                android:padding="16dp"
+                android:textSize="@dimen/button_text_size_medium"
+                android:layout_marginBottom="16dp" />
+
+            <!-- From Unit -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="From Unit"
+                android:textSize="@dimen/button_text_size_medium"
+                android:textColor="@color/text_on_display"
+                android:layout_marginBottom="8dp" />
+
+            <Spinner
+                android:id="@+id/fromUnit"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/input_background"
+                android:padding="16dp"
+                android:layout_marginBottom="16dp" />
+
+            <!-- To Unit -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="To Unit"
+                android:textSize="@dimen/button_text_size_medium"
+                android:textColor="@color/text_on_display"
+                android:layout_marginBottom="8dp" />
+
+            <Spinner
+                android:id="@+id/toUnit"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/input_background"
+                android:padding="16dp"
+                android:layout_marginBottom="24dp" />
+
+            <!-- Convert Button -->
+            <TextView
+                android:id="@+id/convertButton"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Convert"
+                android:textSize="@dimen/button_text_size_medium"
+                android:background="@drawable/button_operator_background"
+                android:textColor="#FFFFFFFF"
+                android:padding="16dp"
+                android:layout_marginBottom="24dp"
+                android:gravity="center"
+                android:clickable="true"
+                android:focusable="true" />
+
+            <!-- Result -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Result:"
+                android:textSize="@dimen/button_text_size_medium"
+                android:textColor="@color/text_on_display"
+                android:layout_marginBottom="8dp" />
+
+            <TextView
+                android:id="@+id/toValue"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text=""
+                android:textSize="@dimen/display_text_size_medium"
+                android:textColor="@color/text_on_display"
+                android:background="@drawable/display_background"
+                android:padding="16dp"
+                android:gravity="center"
+                android:minHeight="80dp" />
+
+        </LinearLayout>
+
+    </ScrollView>
+
+</LinearLayout>
